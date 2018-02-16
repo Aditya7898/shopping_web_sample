@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <ul class="nav navbar-nav">
+      <li *ngIf="appUser ; else anonymousUser" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+           {{appUser.name}}<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li> <a routerLink="/my-orders">My Orders</a></li>
+           <ng-container *ngIf="appUser.isAdmin">
+              <li><a routerLink="/admin/orders">Manage Orders admin</a></li>
+              <li><a routerLink="/admin/products">Manage Products admin</a></li>
+           </ng-container>
+          <li><a (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+      <ng-template #anonymousUser>
+          <li><a routerLink="/login">Login</a></li>
+      </ng-template>
+      <li><a routerLink="/shopping-cart">Shopping Cart</a></li>
+    </ul>
+  </div>
+</nav>
