@@ -1,3 +1,19 @@
 .dropdown-menu>li>a{
     cursor: pointer;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 16px;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 500;
+}

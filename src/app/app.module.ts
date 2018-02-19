@@ -27,6 +27,11 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
 import { CustomFormsModule } from 'ng2-validation';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './shopping-cart.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +45,12 @@ import { CustomFormsModule } from 'ng2-validation';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
+
     FormsModule,
     BrowserModule,
     CustomFormsModule,
@@ -51,7 +59,7 @@ import { CustomFormsModule } from 'ng2-validation';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
-      { path: '' ,             component: HomeComponent},
+      { path: '' ,             component: ProductsComponent},
       { path: 'products' ,     component: ProductsComponent},
       { path: 'login',         component: LoginComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent},
@@ -81,7 +89,7 @@ import { CustomFormsModule } from 'ng2-validation';
       }
     ])
   ],
-  providers: [ProductService,CategoryService, AuthService, AuthGuard, AdminAuthGuard, UserService],
+  providers: [ShoppingCartService ,ProductService,CategoryService, AuthService, AuthGuard, AdminAuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
