@@ -17,6 +17,8 @@ export class ProductsComponent implements OnInit {
   category: string;
   cart : any;
   subscription: Subscription;
+
+
   constructor(
     route: ActivatedRoute,
     productService: ProductService,
@@ -41,9 +43,7 @@ export class ProductsComponent implements OnInit {
 
   async ngOnInit(){
    this.subscription = (await this.shoppingCartService.getCart())
-     .subscribe((cart) =>{
-        this.cart =cart;
-   });
+     .subscribe(cart => this.cart = cart);
   }
 
   ngOnDestroy(){
